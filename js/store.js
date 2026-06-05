@@ -184,6 +184,36 @@ const Store = (function () {
       </a>`;
   }
 
+  /* Mobile bottom tab bar — app-like navigation, shown only on small screens. */
+  const ICONS = {
+    home: '<path d="M3 10.8 12 4l9 6.8"/><path d="M5.5 9.6V20h13V9.6"/>',
+    shop: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+    cart: '<path d="M4 5h2l1.5 11h10L20 8H7"/><circle cx="9.5" cy="20" r="1.2"/><circle cx="17" cy="20" r="1.2"/>',
+    info: '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5"/><circle cx="12" cy="7.8" r="0.6" fill="currentColor" stroke="none"/>',
+  };
+  function tab(href, key, label, icon, current) {
+    return `<a href="${href}" class="${current === key ? "active" : ""}">
+      <svg viewBox="0 0 24 24" aria-hidden="true">${icon}</svg>
+      <span>${label}</span>
+      ${key === "cart" ? '<span class="tab-badge" id="tabBadge">0</span>' : ""}
+    </a>`;
+  }
+  function currentPage() {
+    const f = (location.pathname.split("/").pop() || "index.html");
+    return f === "" ? "index.html" : f;
+  }
+  function tabbarHTML() {
+    const p = currentPage();
+    const cur = p.startsWith("cart") || p.startsWith("checkout") ? "cart"
+      : p.startsWith("about") || p.startsWith("contact") ? "info" : "home";
+    return `<nav class="tabbar" aria-label="Primary">
+      ${tab("index.html", "home", "Home", ICONS.home, cur)}
+      ${tab("index.html#categories", "shop", "Shop", ICONS.shop, cur)}
+      ${tab("cart.html", "cart", "Cart", ICONS.cart, cur)}
+      ${tab("about.html", "info", "More", ICONS.info, cur)}
+    </nav>`;
+  }
+
   function initChrome(opts = {}) {
     const header = document.getElementById("site-header");
     const footer = document.getElementById("site-footer");
@@ -191,6 +221,9 @@ const Store = (function () {
     if (header) header.innerHTML = navHTML(opts.active);
     if (footer) footer.innerHTML = footerHTML();
     if (barSlot && opts.cartBar !== false) barSlot.innerHTML = cartBarHTML();
+    if (!document.querySelector(".tabbar")) {
+      document.body.insertAdjacentHTML("beforeend", tabbarHTML());
+    }
     const y = document.getElementById("year");
     if (y) y.textContent = new Date().getFullYear();
     refresh();
@@ -200,6 +233,8 @@ const Store = (function () {
     const c = count(), t = grandTotal();
     const badge = document.getElementById("navBadge");
     if (badge) { badge.textContent = c; badge.classList.toggle("show", c > 0); }
+    const tb = document.getElementById("tabBadge");
+    if (tb) { tb.textContent = c; tb.classList.toggle("show", c > 0); }
     const bar = document.getElementById("cartBar");
     if (bar) {
       bar.hidden = c === 0;
