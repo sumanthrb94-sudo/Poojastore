@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact · Divya Pooja Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=3" />
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main class="container page">
+    <h1 class="page-title">Get in Touch</h1>
+    <p class="page-sub">Questions about an order or a product? We're here to help.</p>
+
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="contact-item"><span>📍</span><div><b>Visit us</b><p>No. 24, Temple Road, MG Road, Bengaluru 560001</p></div></div>
+        <div class="contact-item"><span>📞</span><div><b>Call</b><p>+91 98765 43210</p></div></div>
+        <div class="contact-item"><span>✉️</span><div><b>Email</b><p>care@divyapooja.store</p></div></div>
+        <div class="contact-item"><span>🕑</span><div><b>Hours</b><p>Mon–Sun · 7:00 AM – 10:00 PM</p></div></div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <h3>Send a message</h3>
+        <label>Name<input name="name" required placeholder="Your name" /></label>
+        <label>Email<input name="email" type="email" required placeholder="you@example.com" /></label>
+        <label>Message<textarea name="message" rows="4" required placeholder="How can we help?"></textarea></label>
+        <button type="submit" class="btn-primary block">Send Message</button>
+        <p class="contact-done" id="contactDone" hidden>✅ Thanks! We'll get back to you shortly.</p>
+      </form>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <div id="cart-bar-slot"></div>
+
+  <script src="js/products.js?v=3"></script>
+  <script src="js/store.js?v=3"></script>
+  <script>
+    Store.initChrome({ active: "contact" });
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      this.reset();
+      document.getElementById("contactDone").hidden = false;
+      Store.toast("Message sent ✅");
+    });
+  </script>
+</body>
+</html>

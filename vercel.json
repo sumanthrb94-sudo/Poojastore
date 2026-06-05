@@ -16,7 +16,7 @@
       ]
     },
     {
-      "source": "/",
+      "source": "/:path(index|product|cart|checkout|about|contact)?",
       "headers": [
         { "key": "Cache-Control", "value": "no-cache, must-revalidate" }
       ]

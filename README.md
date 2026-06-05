@@ -6,13 +6,20 @@ copper pooja items, add to cart, and place an order with a polished checkout flo
 
 ## ✨ Features
 
-- **Zepto-inspired UI** — sticky saffron header with delivery-time pill, location, and live search
-- **Category chips** — filter by Lamps & Diyas, Aarti Sets, Kalash & Lota, Thali, Kumkum, Ritual Essentials
-- **Product cards** — real product photos, ratings, MRP/discount badges, and an `Add` button that turns into a +/− quantity stepper
-- **Cart** — sliding cart drawer, bill breakdown (item total, delivery fee, festive discount, free delivery over ₹499), and a sticky bottom cart bar
-- **Checkout & Place Order** — delivery details form, payment options (UPI / Card / COD), and an animated order-success confirmation with a generated order ID
-- **Persistent cart** — saved to `localStorage`, survives page reloads
-- **Fully responsive** — looks great on mobile and desktop
+A **multi-page** storefront (shared nav + cart across every page):
+
+- **Home** (`index.html`) — hero, category chips, live search, product grid
+- **Product detail** (`product.html?id=…`) — large image, price/savings, quantity stepper, perks, and "You may also like" related products
+- **Cart** (`cart.html`) — line items with steppers, live bill breakdown (item total, delivery fee, 5% festive discount, free delivery over ₹499)
+- **Checkout** (`checkout.html`) — delivery form, payment options (UPI / Card / COD), order summary, and an animated **Order Placed** confirmation with a generated order ID
+- **About** (`about.html`) — brand story, highlights, stats
+- **Contact** (`contact.html`) — store info + working message form
+
+Plus:
+
+- **Zepto-inspired UI** — saffron nav, `Add` buttons that turn into +/− steppers, sticky cart bar, cart badge
+- **Persistent cart & order history** — saved to `localStorage`, shared across all pages
+- **Fully responsive** — mobile and desktop
 - **Zero build step** — plain HTML, CSS, and vanilla JS
 
 ## 🛍️ Products
@@ -58,10 +65,19 @@ headers (immutable caching for images, short cache for css/js).
 
 ```
 .
-├── index.html              # markup & layout
-├── css/styles.css          # all styling (theme, cards, drawer, modals)
-├── js/products.js          # product catalogue + categories
-├── js/app.js               # cart, filtering, checkout & order logic
+├── index.html              # Home (catalog)
+├── product.html            # Product detail (reads ?id=)
+├── cart.html               # Cart page
+├── checkout.html           # Checkout + order confirmation
+├── about.html              # About page
+├── contact.html            # Contact page
+├── css/styles.css          # all styling (theme, nav, cards, pages)
+├── js/products.js          # product catalogue + categories (data)
+├── js/store.js             # shared cart, totals, nav/footer/cart-bar, toast
+├── js/home.js              # home page controller
+├── js/product.js           # product detail controller
+├── js/cart.js              # cart page controller
+├── js/checkout.js          # checkout + place-order controller
 ├── assets/products/        # product photos
 └── vercel.json             # Vercel static-hosting config
 ```
@@ -70,7 +86,7 @@ headers (immutable caching for images, short cache for css/js).
 
 - **Add/edit products** → edit `js/products.js` (set `name`, `price`, `mrp`, `image`, `category`, `tag`)
 - **Theme colours** → tweak the CSS variables at the top of `css/styles.css`
-- **Delivery fee / discount** → constants at the top of `js/app.js`
+- **Delivery fee / discount** → constants at the top of `js/store.js`
 
 ---
 
