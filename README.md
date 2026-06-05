@@ -34,6 +34,26 @@ python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
 
+## ▲ Deploy to Vercel
+
+This is a static site — no build step — so Vercel serves it as-is.
+
+**Option A · Dashboard (easiest)**
+1. Push this repo to GitHub (already done).
+2. Go to [vercel.com/new](https://vercel.com/new) and **Import** the `Poojastore` repo.
+3. Framework Preset: **Other** · Build Command: *(leave empty)* · Output Directory: `.` (root).
+4. Click **Deploy** — you'll get a live `*.vercel.app` URL in seconds.
+
+**Option B · Vercel CLI**
+```bash
+npm i -g vercel
+vercel          # preview deploy
+vercel --prod   # production deploy
+```
+
+The included [`vercel.json`](vercel.json) enables clean URLs and sets cache
+headers (immutable caching for images, short cache for css/js).
+
 ## 📁 Structure
 
 ```
@@ -42,7 +62,8 @@ python3 -m http.server 8000
 ├── css/styles.css          # all styling (theme, cards, drawer, modals)
 ├── js/products.js          # product catalogue + categories
 ├── js/app.js               # cart, filtering, checkout & order logic
-└── assets/products/        # product photos
+├── assets/products/        # product photos
+└── vercel.json             # Vercel static-hosting config
 ```
 
 ## 🎨 Customising
