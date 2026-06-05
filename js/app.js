@@ -234,19 +234,37 @@
 
   function placeOrder(e) {
     e.preventDefault();
-    const orderId = "#DPS" + String(Math.floor(1000 + Math.random() * 9000));
-    el("orderId").textContent = orderId;
 
-    // reset cart
+    // Capture the order summary BEFORE clearing the cart.
+    const items = cartEntries();
+    const orderId = "#DPS" + String(Math.floor(1000 + Math.random() * 9000));
+    const total = grandTotal();
+    const count = cartCount();
+
+    el("orderId").textContent = orderId;
+    el("successSummary").innerHTML =
+      `<span>${count} item${count !== 1 ? "s" : ""}</span>` +
+      `<strong>${fmt(total)}</strong>`;
+
+    // Persist a lightweight order history (handy for a real demo).
+    try {
+      const history = JSON.parse(localStorage.getItem("dps_orders") || "[]");
+      history.unshift({ id: orderId, total, count, at: Date.now() });
+      localStorage.setItem("dps_orders", JSON.stringify(history.slice(0, 20)));
+    } catch (_) { /* ignore */ }
+
+    // Reset cart & UI.
     cart = {};
     saveCart();
     refreshCartUI();
     renderProducts();
 
+    // Close every other layer FIRST so nothing can stack behind success.
     closeCheckout();
     closeDrawer();
     el("checkoutForm").reset();
 
+    // Show success on top of everything.
     el("successOverlay").hidden = false;
     document.body.style.overflow = "hidden";
   }
