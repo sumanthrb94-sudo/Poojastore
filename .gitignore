@@ -1,0 +1,11 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Logs & deps (if a build is added later)
+node_modules/
+npm-debug.log*
+*.log
