@@ -1,4 +1,4 @@
-/* Product catalogue for Divya Pooja Store
+/* Product catalogue for Sri Sai Pooja Store
  * Images are stored locally in assets/products/
  * Prices are in INR (₹). mrp is the struck-through original price.
  */

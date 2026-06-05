@@ -17,7 +17,7 @@
     return;
   }
 
-  document.title = `${p.name} · Divya Pooja Store`;
+  document.title = `${p.name} · Sri Sai Pooja Store`;
   const off = Math.round(((p.mrp - p.price) / p.mrp) * 100);
   const save = p.mrp - p.price;
 

@@ -1,4 +1,4 @@
-/* ===== Divya Pooja Store · shared data + cart + chrome (nav/footer/cart-bar) =====
+/* ===== Sri Sai Pooja Store · shared data + cart + chrome (nav/footer/cart-bar) =====
  * Depends on products.js (PRODUCTS, CATEGORIES). Exposes a global `Store`.
  * Cart is persisted in localStorage so it is shared across every page.
  */
@@ -129,7 +129,7 @@ const Store = (function () {
         <div class="nav-inner">
           <a class="brand" href="index.html">
             <span class="brand-logo">ॐ</span>
-            <span class="brand-text"><b>Divya Pooja</b><small>Pooja essentials in minutes</small></span>
+            <span class="brand-text"><b>Sri Sai Pooja</b><small>Pooja essentials in minutes</small></span>
           </a>
           <form class="nav-search" action="index.html" method="get" role="search">
             <span class="search-ico">🔍</span>
@@ -153,7 +153,7 @@ const Store = (function () {
       <footer class="site-footer">
         <div class="footer-grid">
           <div>
-            <div class="footer-brand"><span class="brand-logo">ॐ</span><b>Divya Pooja Store</b></div>
+            <div class="footer-brand"><span class="brand-logo">ॐ</span><b>Sri Sai Pooja Store</b></div>
             <p>Authentic brass &amp; copper pooja essentials, delivered to your door in minutes.</p>
           </div>
           <div>
@@ -172,7 +172,7 @@ const Store = (function () {
             <p>🚚 Free delivery over ₹499<br/>🔁 7-day easy returns<br/>🛡️ 100% authentic</p>
           </div>
         </div>
-        <div class="footer-base">© <span id="year"></span> Divya Pooja Store · Demo storefront</div>
+        <div class="footer-base">© <span id="year"></span> Sri Sai Pooja Store · Demo storefront</div>
       </footer>`;
   }
 

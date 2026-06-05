@@ -1,4 +1,4 @@
-# 🪔 Divya Pooja Store
+# 🪔 Sri Sai Pooja Store
 
 A **Zepto-style quick-commerce storefront** for a pooja (puja) essentials shop —
 built as a clean, dependency-free demo to show clients. Browse authentic brass &
