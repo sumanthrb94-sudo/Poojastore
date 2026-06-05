@@ -11,6 +11,16 @@ const Store = (function () {
   const CART_KEY = "dps_cart";
   const ORDERS_KEY = "dps_orders";
 
+  /* Brand emblem — lit brass diya in gold on a terracotta tile. */
+  const EMBLEM = `<svg viewBox="0 0 64 64" aria-hidden="true">
+    <rect x="1.5" y="1.5" width="61" height="61" rx="15" fill="#933d04"/>
+    <rect x="5.5" y="5.5" width="53" height="53" rx="11" fill="none" stroke="#e9c176" stroke-width="1" opacity="0.55"/>
+    <path d="M32 13 C 41 25, 39 35, 32 39 C 25 35, 23 25, 32 13 Z" fill="#f1d68a"/>
+    <path d="M32 20 C 37 27, 36 33, 32 36 C 28 33, 27 27, 32 20 Z" fill="#fff4d6"/>
+    <path d="M15 43 Q32 57 49 43 Q44 49 32 49 Q20 49 15 43 Z" fill="#e9c176"/>
+    <ellipse cx="32" cy="51.5" rx="11" ry="2.2" fill="#e9c176"/>
+  </svg>`;
+
   /* ---------- helpers ---------- */
   const fmt = (n) => "₹" + Math.round(n).toLocaleString("en-IN");
   const product = (id) => PRODUCTS.find((p) => p.id === id);
@@ -128,7 +138,7 @@ const Store = (function () {
       <header class="nav">
         <div class="nav-inner">
           <a class="brand" href="index.html">
-            <span class="brand-logo">ॐ</span>
+            <span class="brand-logo">${EMBLEM}</span>
             <span class="brand-text"><b>Sri Sai Pooja</b><small>Pooja essentials in minutes</small></span>
           </a>
           <form class="nav-search" action="index.html" method="get" role="search">
@@ -153,7 +163,7 @@ const Store = (function () {
       <footer class="site-footer">
         <div class="footer-grid">
           <div>
-            <div class="footer-brand"><span class="brand-logo">ॐ</span><b>Sri Sai Pooja Store</b></div>
+            <div class="footer-brand"><span class="brand-logo">${EMBLEM}</span><b>Sri Sai Pooja Store</b></div>
             <p>Authentic brass &amp; copper pooja essentials, delivered to your door in minutes.</p>
           </div>
           <div>

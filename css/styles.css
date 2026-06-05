@@ -57,12 +57,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav-inner { max-width: var(--maxw); margin: 0 auto; padding: 12px 18px; display: flex; align-items: center; gap: 18px; }
 .brand { display: flex; align-items: center; gap: 11px; flex: 0 0 auto; }
 .brand-logo {
-  width: 44px; height: 44px; display: grid; place-items: center;
-  background: linear-gradient(145deg, #5a2a0f, var(--maroon)); color: var(--gold-soft);
-  border-radius: 12px; font-size: 24px; font-family: "Tiro Devanagari Sanskrit", serif;
-  box-shadow: inset 0 0 0 1px rgba(194,160,90,.5), var(--shadow-sm);
+  width: 44px; height: 44px; flex: 0 0 auto; border-radius: 12px;
+  overflow: hidden; box-shadow: var(--shadow-sm); display: block;
 }
-.brand-logo.big { width: 88px; height: 88px; font-size: 50px; border-radius: 22px; margin: 0 auto 18px; }
+.brand-logo svg { width: 100%; height: 100%; display: block; }
+.brand-logo.big { width: 88px; height: 88px; border-radius: 20px; margin: 0 auto 18px; }
+.footer-brand .brand-logo { width: 38px; height: 38px; border-radius: 10px; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.05; }
 .brand-text b { font-family: "EB Garamond", serif; color: var(--ink); font-size: 19px; font-weight: 600; letter-spacing: .01em; }
 .brand-text small { color: var(--gold-deep); font-size: 10.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
