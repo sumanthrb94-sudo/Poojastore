@@ -132,16 +132,16 @@ const Store = (function () {
             <span class="brand-text"><b>Sri Sai Pooja</b><small>Pooja essentials in minutes</small></span>
           </a>
           <form class="nav-search" action="index.html" method="get" role="search">
-            <span class="search-ico">🔍</span>
+            <svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
             <input type="search" name="q" placeholder="Search diyas, kalash, kumkum…" autocomplete="off" />
           </form>
           <nav class="nav-links">
             ${link("index.html", "home", "Home")}
-            ${link("about.html", "about", "About")}
+            ${link("about.html", "about", "Heritage")}
             ${link("contact.html", "contact", "Contact")}
           </nav>
           <a class="nav-cart" href="cart.html" aria-label="Cart">
-            <span class="nav-cart-ico">🛒</span>
+            <svg class="nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1.1 11.2A2 2 0 0 1 14.9 21H9.1a2 2 0 0 1-2-1.8L6 8z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
             <span class="nav-cart-badge" id="navBadge">0</span>
           </a>
         </div>
